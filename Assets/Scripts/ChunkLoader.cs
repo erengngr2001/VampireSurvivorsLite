@@ -11,6 +11,11 @@ public class ChunkLoader : MonoBehaviour
     public Background background; // Background manager
     //public GameObject chunkPrefab; // Prefab for the chunk
 
+    [Header("Generation")]
+    public int worldSeed = 123456; // change for a different world
+    public GameObject obstaclePrefab;
+    public GameObject chestPrefab;
+
     private HashSet<Vector2Int> loaded = new HashSet<Vector2Int>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
