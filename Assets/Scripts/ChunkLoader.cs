@@ -6,9 +6,10 @@ public class ChunkLoader : MonoBehaviour
     [Header("Chunk Loader Settings")]
     public int chunkSize = 16;     // cells per chunk side (conceptual)
     public float cellSize = 1f;    // world units per cell
-    public int loadRadius = 2;     // chunks outward to load
+    public int loadRadius = 3;     // chunks outward to load
     public Transform player;       // assign in inspector or auto-find by tag "Player"
-    public GameObject chunkPrefab; // Prefab for the chunk
+    public Background background; // Background manager
+    //public GameObject chunkPrefab; // Prefab for the chunk
 
     private HashSet<Vector2Int> loaded = new HashSet<Vector2Int>();
 
@@ -20,6 +21,8 @@ public class ChunkLoader : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
         }
         UpdateLoadedChunks(true);
+        background.Init(chunkSize, cellSize, loadRadius);
+        background.DrawBackground();
     }
 
     // Update is called once per frame
@@ -85,12 +88,14 @@ public class ChunkLoader : MonoBehaviour
         var go = new GameObject($"Chunk_{c.x}_{c.y}");
         go.transform.position = new Vector3(c.x * chunkSize * cellSize, c.y * chunkSize * cellSize, 0f);
 
-        //var go = (GameObject) Instantiate(chunkPrefab, 
-        //    new Vector3(c.x * chunkSize * cellSize, c.y * chunkSize * cellSize, 0f), 
+        //var go = (GameObject)Instantiate(chunkPrefab,
+        //    new Vector3(c.x * chunkSize * cellSize, c.y * chunkSize * cellSize, 0f),
         //    Quaternion.identity);
+        //go.GetComponent<SpriteRenderer>().transform.localPosition = new Vector3(c.x * chunkSize * cellSize, c.y * chunkSize * cellSize, 0f);
         //go.name = $"Chunk_{c.x}_{c.y}";
 
         var chunk = go.AddComponent<Chunk>();
-        chunk.Init(c, chunkSize, cellSize, chunkPrefab);
+        //chunk.Init(c, chunkSize, cellSize, chunkPrefab);
+        chunk.Init(c, chunkSize, cellSize);
     }
 }

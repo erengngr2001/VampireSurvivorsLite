@@ -7,14 +7,14 @@ public class Chunk : MonoBehaviour
     private Vector2Int coord;
     private int size;
     private float cellSize;
-    private GameObject chunkPrefab; // Prefab for the chunk
+    //private GameObject chunkPrefab; // Prefab for the chunk
 
-    public void Init(Vector2Int coord, int size, float cellSize, GameObject chunkPrefab)
+    public void Init(Vector2Int coord, int size, float cellSize)//, GameObject chunkPrefab)
     {
         this.coord = coord;
         this.size = size;
         this.cellSize = cellSize;
-        this.chunkPrefab = chunkPrefab;
+        //this.chunkPrefab = chunkPrefab;
         DrawSprite();
     }
 
