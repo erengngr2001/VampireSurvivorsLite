@@ -1,5 +1,5 @@
 # VampireSurvivorsLite
-Experimenting on Vampire Survivors game base for learning. 
+Experimenting on Vampire Survivors game base for learning. <br/><br/>
 A roguelike action RPG where you have a timer instead of a health bar. Enemy hits will reduce the time left in the timer. **Try to finish the game before you run out of time!**
 
 # 1) Chunk System and Infinite Grid
