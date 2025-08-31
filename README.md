@@ -1,6 +1,7 @@
 # VampireSurvivorsLite
 Experimenting on Vampire Survivors game base for learning. 
 
+# 1) Chunk System and Infinite Grid
 For making infinite grid, I used a chunk system. 
 The world is divided into NxN chunks where N is the number of cells of size M.
 Depending on which chunk the player locates, the chunks within a radius are loaded, and the rest are unloaded. 
